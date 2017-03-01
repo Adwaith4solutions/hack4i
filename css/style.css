@@ -1,4 +1,13 @@
-.main-nav, 
+.icon {
+  max-width: 150px;
+  max-height: 150px;
+  margin: 0 auto;
+  display: block;
+}
+
+.services section {
+  text-align: center;
+}.main-nav, 
 .service-icon, 
 .progress-bar.progress-bar-primary, 
 .single-table.featured, 
