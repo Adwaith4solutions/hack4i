@@ -24,9 +24,12 @@
     $intro = $row['abstract'];
      $topic = $row['topic'];
     $image = $row['images'];
-    echo ' <section class="col-sm-6 col-md-4 col-lg-2">';
-    echo '<img src="'.$image.'" alt="HTML5 Icon" style=" align:center;width:240px;height:200px">';
-         echo "<h3>".$topic."</h3>";
+    echo ' <section class="col-sm-6 col-md-4 col-lg-3">';
+      echo'<a href="topic.php">';
+    echo '<img src="'.$image.'"alt="HTML5 Icon" style=" align:center;width:240px;height:200px">';
+      echo '</a>';   
+      echo "<h3>".$topic."</h3>";
+
         echo "<p>".$intro."</p>";    
           echo'</section>';
 
