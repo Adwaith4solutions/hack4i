@@ -2,3 +2,7 @@
 [0226/103217.626:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: The pipe has been ended. (0x6D)
 [0226/103217.627:ERROR:crash_report_database_win.cc(563)] CreateDirectory C:\Program Files (x86)\reports: Access is denied. (0x5)
 [0226/103217.900:ERROR:crashpad_client_win.cc(660)] crash server failed to launch, no dump captured
+[0303/151434.970:ERROR:file_io_win.cc(163)] CreateFile C:\Program Files (x86)\settings.dat: Access is denied. (0x5)
+[0303/151434.976:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0303/151434.979:ERROR:file_io_win.cc(163)] CreateFile C:\Program Files (x86)\settings.dat: Access is denied. (0x5)
+[0303/151435.068:ERROR:crashpad_client_win.cc(660)] crash server failed to launch, no dump captured
