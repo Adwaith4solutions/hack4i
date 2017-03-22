@@ -12,11 +12,16 @@
 <body>
        
   <?php
-
-      $stmt = $con->query("SELECT * FROM tutorial_info where id=1");
+   
+$id=$_GET['id_no'];
+if (isset($_GET['view'])
+{
+$sql =$con->query( "UPDATE project_info set views = views+1 where id ='$id'");
+}
+  
+      $stmt = $con->query("SELECT * FROM project_info where id='$id'");
 
   $row = $stmt->fetch_array();
-    $id = $row['id'];
     
     $intro = $row['abstract'];
      $topic = $row['topic'];
@@ -29,16 +34,22 @@
     margin-left: auto;
     margin-right: auto ">';
   echo'<br><br>';
+    
+
+
 
 ?>
 
-<form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+<form action="" method="POST">
 <input type = "submit" value = "like" name='like'>
 </form>
 <?php
-    
+  if(isset($_POST['like'])) {
+$sql =$con->query( "UPDATE tutorial_info set likes = likes+1 where id ='$id'");
+}
+
     echo'<section class="container-fixed">';
-       echo'<div class="page" style="margin-left:20px; margin-right:20px;">';
+     echo'<div class="page" style="margin-left:20px; margin-right:20px;">';
       echo'<div class="topic" style="text-align:center;">';
          echo "<h3>".$topic."</h3>";
       echo '</div>';
@@ -46,11 +57,8 @@
       echo'</div>';
           echo'</section>';
 
- if(isset($_POST['like'])) {
-$sql =$con->query( "UPDATE tutorial_info set likes = likes+1 where id = 1");
-} 
+  
 
-$stmt->free();
 ?>
     
 

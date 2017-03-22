@@ -47,23 +47,25 @@
 
 ?>
 
-<form action="topic.php" method="POST">
-<input type = "submit" value = "View more" name='view' id="view">
+<form action="topic2.php" method="GET">
+<input type=hidden name='id_no' value=<?= $id?>>
+<input type = "submit" name='view' id="view" value="View more">
 </form><?php echo'</section>';
-
-  }
-          
-          if(isset($_POST['view'])) {          
-$sql =$con->query( "UPDATE tutorial_info set views = views+1 where id ='1'");
 }
+      
 ?>
     
 
   </div><!-- row -->   
 </div><!-- content container -->
 
-
 <script src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+
+
+
+</script>
+
 <script src="js/bootstrap.min.js"></script>
 <script src="js/script.js"></script>
 </body>

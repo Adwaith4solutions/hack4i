@@ -1,56 +1,63 @@
 
-<!DOCTYPE html>
-<html lang="en">
+
+<!Doctype html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>Hack4i @ CE Aranmula</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-  <link href="css/animate.min.css" rel="stylesheet"> 
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/lightbox.css" rel="stylesheet">
-  <link href="css/main.css" rel="stylesheet">
-  <link id="css-preset" href="css/presets/preset1.css" rel="stylesheet">
-  <link href="css/responsive.css" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="$1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-  <![endif]-->
-  
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-  <link rel="shortcut icon" href="images/favicon.png">
-</head><!--/head-->
+<link rel="stylesheet" type="text/css" href="style.css">
 
-<div class="col-md-4">
-            <div class="single-table wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
-              <div class="price">
-  <?php require 'connections/connect.php';?>
-  <?php
-      $stmt = $con->query("SELECT * FROM article_info");
-
-  while ($row = $stmt->fetch_array()) {
-    $id = $row['article_id'];
-    
-    $intro = $row['abstract'];
-     $topic = $row['topic'];
-    $image = $row['images'];
-    echo '<img src="'.$image.'" alt="HTML5 Icon" style="width:240px;height:240px">';
-         echo "<br>".$topic;
-        echo "<br>".$intro;    
-    
-        echo"<br><br>";
+<title>test</title>
 
 
-  
+</head>
+<body>
+
+ <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "hack4i";
+// Create connection
+$con = new mysqli($servername, $username, $password,$dbname);
+
+  if(isset($_POST['save']))
+{$a=$_POST["username"];
+$b=$_POST["password"];
+$c=$_POST["email"];
+
+    $sql = "INSERT INTO usertest (name, password, email)
+    VALUES ('".$a."','".$b."','".$c."')";
+ 
+    $result = mysqli_query($con,$sql);
+if($result==TRUE)
+{
+	echo "successful";
 }
-$stmt->free();
-$con->close();
+else
+{
+echo  "Error: " . $sql . "<br>" . mysqli_error($con);
+}
+}
+mysqli_close($con);
 ?>
-              <a href="#" class="btn btn-lg btn-primary">Sign up</a>
-            </div>
-          </div>
-   
+
+<form action="" method="post"> 
+<label id="first"> First name:</label><br/>
+<input type="text" name="username"><br/>
+
+<label id="first">Password</label><br/>
+<input type="password" name="password"><br/>
+
+<label id="first">Email</label><br/>
+<input type="text" name="email"><br/>
+
+<button type="submit" name="save">save</button>
+
+</form>
+
+</body>
+</html>

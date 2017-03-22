@@ -24,8 +24,8 @@
   <div class="row">
 
         <?php require 'connections/connect.php';?>
-  <?php
-      $stmt = $con->query("SELECT * FROM tutorial_info");
+  
+ <?php
 
   while ($row = $stmt->fetch_array()) {
     $id = $row['id'];
@@ -48,14 +48,14 @@
 ?>
 
 <form action="topic.php" method="POST">
-<input type = "submit" value = "View more" name='view' id="view">
+<input type = "submit" value = "View more" name='view' id="view" />
 </form><?php echo'</section>';
 
   }
           
-          if(isset($_POST['view'])) {          
-$sql =$con->query( "UPDATE tutorial_info set views = views+1 where id ='1'");
-}
+        
+$stmt->free();
+$con->close();
 ?>
     
 
